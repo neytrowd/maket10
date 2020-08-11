@@ -1,0 +1,36 @@
+@import "mixin";
+@import "variables";
+
+*,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+@include font-face(Raleway,'../fonts/Raleway/Raleway-ExtraBold',800,normal);
+@include font-face(Raleway,'../fonts/Raleway/Raleway-Bold',700,normal);
+@include font-face(Raleway,'../fonts/Raleway/Raleway-SemiBold',600,normal);
+@include font-face(Raleway,'../fonts/Raleway/Raleway-Medium',500,normal);
+@include font-face(Raleway,'../fonts/Raleway/Raleway-Regular',400,normal);
+@include font-face(Raleway,'../fonts/Raleway/Raleway-ExtraLight',300,normal);
+
+@include font-face(Roboto,'../fonts/Roboto/Roboto-Black',900,normal);
+@include font-face(Roboto,'../fonts/Roboto/Roboto-Bold',700,normal);
+@include font-face(Roboto,'../fonts/Roboto/Roboto-Medium',600,normal);
+@include font-face(Roboto,'../fonts/Roboto/Roboto-Regular',400,normal);
+@include font-face(Roboto,'../fonts/Roboto/Roboto-Light',300,normal);
+
+@include font-face(Yellowtail,'../fonts/Yellowtail/Yellowtail-Regular',400,normal);
+
+html{
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.container{
+    max-width: 1170px;
+    margin: 0 auto;
+}

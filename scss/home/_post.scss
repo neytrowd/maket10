@@ -1,0 +1,266 @@
+.post{
+
+    padding: 81px 0 130px 0;
+
+    &-title{
+        @include title($grey,$greyText,$grey);
+    }
+
+    &-slider{
+        margin-top: 73px;
+        position: relative;
+
+        .slick-dots{
+            @include center('horizontal');
+            bottom: -55px;
+            @include dots;
+        }
+    }
+
+    &-slider-item{
+        @include flex(null,space-between,null,null);
+    }
+
+    &-slider-block{
+        width: 570px;
+        @include flex(null,space-between,null,null);
+
+        &:hover{
+            .post-slider-block-search{
+                opacity: 1;
+            }
+
+            .post-slider-block-info{
+                p:nth-child(2),
+                a{
+                    color: $red;
+                }
+
+                &:before{
+                    width: 240px;
+                    background-color: $red;
+                }
+            }
+        }
+    }
+
+    &-slider-block-inner{
+        flex-basis: 270px;
+        position: relative;
+        display: flex;
+
+        span{
+            width: 41px;
+            height: 41px;
+            background-color: $grey;
+            text-align: center;
+            @include text(null,20px, null,none,#fff,700,40px,null,null);
+            @include position(absolute,0,null,null,0,2);
+        }
+    }
+
+    &-slider-block-search{
+        @include position(absolute,0,0,0,0,2);
+        background-color: rgba($color: $grey, $alpha: 0.85);
+        @include flex(null,center,null,center);
+        transition: 0.5s all linear;
+        opacity: 0;
+
+        a{
+            display: inline-block;
+            width: 41px;
+            height: 41px;
+            text-align: center;
+            @include text(null,20px, null,none,#fff,400,42px,null,null);
+        }
+
+        a:nth-child(1){
+            @include position(absolute,0,null,null,0,2);
+            background-color: $red;
+        }
+
+        a:nth-child(2),
+        a:nth-child(3){
+            margin: 0 2px;
+            font-size: 14px;
+            border-radius: 50%;
+            background-color: $grey;
+            transition: 0.5s all linear;
+
+            &:hover{
+                background-color: $red;
+            }
+        }
+    }
+
+
+    &-slider-block-info{
+        flex-basis: 300px;
+        padding: 29px;
+        background-color: $blockBg;
+        position: relative;
+        
+        &:before{
+            content: "";
+            width: 70px;
+            height: 2px;
+            background-color: $grey;
+            @include position(absolute,null,null,0,30px,2);
+            transition: 0.5s all linear;
+        }
+
+        p:nth-child(1){
+            @include text($rob,14px, null,none,$greyText,400,20px,null,null);
+        }
+
+        p:nth-child(2){
+            @include text($ral,18px, null,none,$grey,600,20px,null,null);
+            margin: 10px 0 17px 0;
+            transition: 0.3s all linear;
+        }
+
+        p:nth-child(3){
+            @include text($rob,14px, null,none,$greyText,400,20px,null,null);
+            margin-bottom: 25px;
+        }
+
+        a{
+            @include text($rob,14px, null,none,$grey,400,20px,null,null);            
+            transition: 0.3s all linear;
+        }
+    }
+
+}
+
+
+.option{
+    background: url(../images/homeOptionBg.png);
+    @include bg;
+    padding-top: 81px;
+
+    &-title{
+        @include title($grey,$greyText,$grey);
+    }
+
+    &-block{
+        margin-top: 80px;
+        @include flex(null,space-between,null,null);
+    }
+    
+    &-block-info{
+        padding: 45px 0 0 60px;
+    }
+
+    &-block-info-item{
+        @include flex(null,space-between,null,null);
+
+        &:nth-child(n+2){
+            margin-top: 20px;
+        }
+
+        &:hover{
+            .option-block-info-type{
+                border-color: $red;
+                background-color: transparent;
+                color: $red;
+            }
+
+            .option-block-info-data{
+                p:nth-child(1){
+                    color: $red;
+                }
+            }
+        }
+    }
+
+    &-block-info-type{
+        width: 100px;
+        height: 100px;
+        background-color: #fff;
+        border-radius: 50%;
+        text-align: center;
+        border: 3px solid #fff;
+        @include text(null,40px, null,none,$grey,400,95px,null,null);
+        transition: 0.5s all linear;
+    }
+
+    &-block-info-data{
+        flex-basis: 240px;
+        padding-top: 15px;
+        p:nth-child(1){
+            @include text($ral,20px, null,none,$grey,700,20px,null,null);
+            margin-bottom: 6px;
+            transition: 0.5s all linear;
+        }
+
+        p:nth-child(2){
+            @include text($rob,14px, null,none,$greyText,400,20px,null,null);
+        }
+    }
+}
+
+
+.client{
+    margin-top: -4px;
+    background: url(../images/homeClientBg.png);
+    @include bg;
+
+    &-inner{
+        padding:  81px 60px;
+        position: relative;
+    }
+
+    &-item{
+        &-inner{
+            width: 100%;
+            height: 90px;
+            @include flex(null,center,null,center);
+        }
+
+        img{
+            @include img;
+        }
+
+    }
+
+
+    .slick-slider{
+        position: static;
+    }
+
+    &-inner-block{
+        .slick-prev,
+        .slick-next{
+            border: none;
+            font-size: 0;
+            @include center('vertical');
+            z-index: 2;
+            background-color: transparent;
+            
+            &:before{
+                @include text($ral,20px, null,none,#fff,600,28px,null,null);
+                display: inline-block;
+                width: 30px;
+                height: 30px;
+                background-color: $grey;
+                border-radius: 3px;
+            }
+        }
+
+        .slick-prev{
+            left: 0;    
+            &:before{
+                content: "<";
+            }
+        }
+
+        .slick-next{
+            right: 0;
+            &:before{
+                content: ">";
+            }
+        }
+    }
+
+
+}

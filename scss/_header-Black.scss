@@ -1,0 +1,267 @@
+.header{
+
+    // header contact begin
+    &-contact{
+        padding: 12px 0 11px 0;
+        background-color: $grey;
+    }
+
+    &-contact-inner{
+        @include flex(null,space-between,null,null);
+    }
+
+    &-contact-address{
+        a{
+            @include text($rob,13px, null,none,#898989,400,20px,null,null);
+
+            &:nth-child(1){ margin-right: 62px; }
+            &:nth-child(2){ margin-right: 49px; }
+        }
+    
+        i{
+            font-size: 16px;
+            margin-right: 10px;
+        }
+    }
+
+    &-contact__lang,
+    &-contact__list{
+        position: relative;
+
+        &:before{
+            content: "";
+            @include position(absolute,5px,-20px,null,null,null);
+            border: 5px solid #898989;
+            border-color: #898989 transparent transparent transparent;
+        }
+    }
+
+    &-contact__reg,
+    &-contact__list{
+        @include text($rob,13px, null,none,#898989,400,20px,null,null);
+
+        i{ font-size: 16px; margin-right: 10px; }
+        span{ color: $headerGreen; }
+    }
+
+    &-contact__list{
+        display: inline-block;
+        margin: 0 65px 0 52px;
+        position: relative;
+        i,span{ color: #898989; }
+
+        &:hover .header-contact-wishlist{
+            height: 453px;
+        }
+
+        &:hover {
+            &:before{
+                border-color: transparent transparent $red transparent;
+                transform: translateY(-3px);
+            }
+            .header-contact__text i,
+            .header-contact__text span{ color: $red; }
+        }
+    }
+
+    &-contact-wishlist{
+        display: block;
+        width: 400px;
+        height: 0;
+        overflow: hidden;
+        transition: 0.3s all linear;
+        @include position(absolute,30px,null,null,-70%,2);
+        background-color: $headerWishlist;
+    }
+
+    &-contact-wishlist-block{
+        display: inline-block;
+        width: 100%;
+        padding: 30px;
+    }
+
+    &-contact-wishlist-item{
+        @include flex(null,space-between,null,null);
+
+        &:nth-child(n+2){
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid $grey;
+        }
+    }
+
+    &-contact-wishlist-info{
+        display: inline-block;
+        width: 252px;
+        position: relative;
+        
+        &-links{
+            text-decoration: none;
+        }
+
+        &-links:hover >p:nth-child(1){
+            color: $red;
+        }
+
+        p:nth-child(1){
+            @include text($rob,14px, capitalize,none,$greyText,400,20px,null,null);
+        }
+        p:nth-child(2){
+            @include text($rob,16px, null,none,$grey,700,20px,null,null);
+            margin: 4px 0;
+        }
+        
+        &__link{
+            @include text($rob,8px, uppercase,none,#fff,700,20px,null,null);
+            background-color: $headerGreen;
+            border-radius: 5px;
+            padding: 2px 12px;
+        }
+        
+        &__del{
+            i{ font-size: 22px;  color: $headerWishlistLine;}
+            @include position(absolute,22px,-10px,null,null,3);
+            &:hover i{ color: $red; }
+        }
+
+    }
+
+    &-contact-wishlist-clear{
+        padding: 30px;
+        background-color: #000;
+        @include flex(null,space-between,null,null);
+        a{
+            @include text($ral,12px, uppercase,none,#fff,800,20px,null,null);
+            background-color: $grey;
+            border-radius: 3px;
+            padding: 10px 0;
+            width: 155px;
+            text-align: center;
+            transition: 0.3s all linear;
+        }
+
+        a:hover{
+            background-color: $red;
+        }
+    }
+
+    &-contact-links-list{
+        display: inline-block;
+        list-style: none;
+        li{
+            display: inline-block;
+            margin-left: 1px;
+        }
+    }
+
+    &-contact-links__item{
+        @include text(null,18px, null,none,#898989,400,20px,null,null);
+        &:hover{
+            color: $red;
+        }
+    }
+    // header contact end
+
+
+    // header nav begin
+    &-nav{ padding: 30px 0 35px 0; }
+    &-nav-inner{ @include flex(null,null,null,center); }
+    &-nav-logo{ cursor: pointer; }
+    &-nav-list{
+        display: inline-block;
+        list-style: none;
+        margin: 5px 50px 0 99px ;
+
+        li{
+            margin-right: 39.5px;
+            display: inline-block;
+            position: relative;
+        }
+
+        li:hover .header-nav-list-submenu{
+            height: 200px;
+        }
+
+        li:hover>a,
+        li:hover>a:after{
+            color: $red;
+            border-color: $red transparent transparent transparent;
+        }
+    }
+
+    &-nav-list-submenu{
+        height: 0;
+        width: 200px;
+        list-style: none;
+        @include position(absolute,30px,null,null,0,2);
+        overflow: hidden;
+        transition: 0.2s all linear;
+        transform-origin: 50% 0;
+
+        li{ width: 100%; }
+        li:nth-child(n+2){ border-top: 1px solid #fff; }
+    }
+
+    &-nav-list-submenu__item{
+        display: inline-block;
+        padding: 20px 0;
+        width: 100%;
+        text-align: center;
+        background-color: $red;
+        transition: 0.5s all linear;
+        @include text($ral,14px, uppercase,none,#fff,800,20px,null,null);
+
+        &:hover{
+            background-color: #fff;
+            color: $red;
+        }
+    }
+
+    &-nav-list__item{
+        @include text($ral,14px, uppercase,none,#080808,800,20px,null,null);
+        position: relative;
+    }
+
+    .arrow:after{
+        content: "";
+        @include position(absolute,7px,null,null,113%,null);
+        border: 4px solid $grey;
+        border-color: $grey transparent transparent transparent;
+    }
+
+    .active{
+        color: $red;
+        &:before{
+            content: "";
+            @include position(absolute,-9px,null,null,1px,null);
+            width: 8px;
+            height: 2px;
+            background-color: $red;
+        }
+
+        &:after{ border-color: $red transparent transparent transparent; }
+    }
+
+    &-nav-links{
+        a { @include text($ral,14px, null,none,#080808,500,20px,null,null); }
+        i { font-size: 19px; }
+    }
+
+    &-nav__korzina{
+        margin: 0 22px 0 10px;
+        position: relative;
+
+        span{
+            display: inline-block;
+            @include position(absolute,-8px,-3px,null,null,null);
+            width: 17px;
+            height: 17px;
+            text-align: center;
+            color: #fff;
+            line-height: 17px;
+            border-radius: 50%;
+            background-color: $red;
+        }
+    }
+
+}

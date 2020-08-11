@@ -1,0 +1,218 @@
+.inter{
+    min-height: 635px;
+    background: url(../images/homeInterBg.png);
+    @include bg;
+    padding-top: 81px;
+
+    &-title{
+        @include title(#fff,$greyText,$red);
+    }
+
+    &-block{
+        margin-top: 101px;
+        @include flex(null,space-between,null,null);
+    }
+
+    &-block-item{
+        flex-basis: 270px;
+        text-align: center;
+        position: relative;
+
+        &:before{
+            content: "";
+            @include center('horizontal');
+            bottom: -28px;
+            width: 70px;
+            height: 2px;
+            background-color: $greyText;
+        }
+
+    }
+
+    &-block-progress{
+        height: 130px;
+        width: 130px;
+        margin: 0 auto;
+        position: relative;
+        
+        svg{
+            height: 100%;
+            width: 100%;
+        }
+
+        .circle{
+            transform-origin: center;
+            transform: rotate(-90deg);
+        }
+
+        &:before{
+            content: attr(data-percentage);
+            @include center('both');
+            @include text($ral,36px, null,none,#fff,700,20px,null,null);
+        }
+    }
+
+
+    &-block__title{
+        @include text($ral,24px, null,none,$red,700,20px,null,null);
+        margin: 37px 0 22px 0;
+    }
+
+    &-block__info{
+        @include text($rob,14px, null,none,$greyText,400,20px,null,null);
+    }
+
+}
+
+
+.choose{
+    padding: 80px 0 75px 0;
+    background-color: $blockBg;
+
+    &-title{
+        @include title($grey,$greyText,$grey);
+    }
+
+    &-block{
+        @include flex(null,space-between,null,null);
+        margin-top: 74px;
+    }
+
+    // choose block info begin
+    &-block-info{
+        flex-basis: 570px;
+    }
+
+    &-block-info-item{
+        input{
+            display: none;
+
+            &:checked ~ label{
+                background-color: $grey;
+                span:nth-child(1){
+                    color: #fff;
+                }
+            }
+
+            &:checked ~ label:after{
+                transform: rotate(90deg);
+                top: 13px;
+                right: 15px;
+            }
+
+            &:checked ~ label:before{
+                background-color: $red;
+            }
+
+            &:checked ~ .choose-block-info-text{
+                height: 220px;
+                padding: 26px 30px;
+            }
+        }
+
+        &:nth-child(n+2){
+            margin-top: 3px;
+        }
+    }
+
+    &-block-info__lab{
+        display: inline-block;
+        width: 100%;
+        padding: 10px 30px;
+        background-color: $homeChooseLab;
+        border-radius: 3px;
+        overflow: hidden;
+        cursor: pointer;
+        position: relative;
+
+        &:before{
+            content: "";
+            height: 100%;
+            width: 43px;
+            @include position(absolute,0,0,null,null,2);
+            background-color: $grey;
+        }
+
+        &:after{
+            content: "\f054";
+            @include position(absolute,11px,13px,null,null,2);
+            color: #fff;
+            font-size: 18px;
+            transform-origin: center center;
+            transition: 0.3s all linear;
+        }
+
+        span:nth-child(1){
+            @include text($ral,18px, null,none,$grey,700,20px,null,null);
+            margin-right: 17px;
+        }
+
+        span:nth-child(2){
+            @include text($rob,13px, null,none,$greyText,400,20px,null,null);
+        }
+    }
+
+    &-block-info-text{
+        height: 0;
+        overflow: hidden;
+        padding: 0 30px;
+        transition: 0.5s all linear;
+        @include text($rob,14px, null,none,$greyText,400,20px,null,null);
+        
+        p:nth-child(1){
+            margin-bottom: 20px;
+        }
+    }
+    // choose block info end
+
+
+    // choose block slider begin
+    &-block-slider{
+        flex-basis: 570px;
+        max-width: 570px;
+
+        .slick-dots{
+            transform: translateY(-5px);
+            @include dots;
+        }
+    }
+
+    &-block-slider-user{
+        background-color: $homeChooseLab;
+        padding: 28px 30px 32px 30px;
+        @include flex(null,space-between,null,null);
+        position: relative;
+        margin-bottom: 40px;
+
+        &:before{
+            content: "";
+            border: 15px solid $homeChooseLab;
+            border-color: $homeChooseLab 
+                          $homeChooseLab 
+                          transparent 
+                          transparent;
+            @include position(absolute,null,75px,-20px,null,2);
+            transform: rotate(-7deg);
+        }
+
+    }
+
+    &-block-slider-inner{
+        margin-left: 30px;
+        span{
+            @include text($ral,18px, null,none,$grey,600,20px,null,null);
+        }
+
+        a{
+            margin-left: 115px;
+            @include text($rob,14px, null,none,$greyText,400,20px,null,null);
+        }
+
+        p{
+            @include text($rob,14px, null,none,$greyText,400,20px,null,null);
+            margin-top: 8px;
+        }
+    }
+    // choose block slider end
+
+}

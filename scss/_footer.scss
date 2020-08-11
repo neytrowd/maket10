@@ -1,0 +1,241 @@
+.footer{
+
+    ul{
+        list-style: none;
+        li{
+            display: inline-block;
+        }
+    }
+
+    &-contact{
+        min-height: 533px;
+        padding: 78px 0;
+        background-color: $footerContactBg;
+    }
+
+    &-contact-inner{
+        @include flex(null,space-between,null,null);
+    }
+
+    &-contact-block,
+    &-contact-news,
+    &-contact-widget,
+    &-contact-touch{
+        flex-basis: 270px;
+    }
+
+    &-contact__title{
+        @include text($ral,24px, capitalize,none,#fff,700,20px,null,null);
+        margin-bottom: 58px;
+        position: relative;
+
+        &:before{
+            content: "";
+            width: 70px;
+            height: 2px;
+            background-color: $red;
+            @include position(absolute,45px,null,null,0,2);
+        }
+    }
+
+    &-contact-block{
+        span{
+            @include flex(null,space-between,null,flex-end);
+            @include text($rob,10px, uppercase,none,$grey,700,10px,null,null);
+            img{
+                margin-right: 13px;
+            }
+        }
+
+        p:nth-of-type(1){
+            @include text($rob,14px, null,none,$greyText,400,20px,null,null);
+            margin: 30px 0 13px 0;
+        }
+
+        a{
+            @include text($rob,14px, null,none,$red,400,20px,null,null);
+        }
+
+        p:nth-of-type(2){
+            @include text($rob,18px, null,none,#fff,700,20px,null,null);
+            margin: 39px 0 18px 0;
+        }
+
+        .footer-contact-block-form__in{
+            width: 100%;
+            position: relative;
+
+            input{
+                width: 100%;
+                background-color: $footerInputBg;
+                padding: 11px 20px;
+                border: none;
+                border-radius: 5px;
+                @include text($rob,14px, null,none,$greyText,400,20px,null,null);
+
+                ::placeholder{
+                    @include text($rob,14px, null,none,$greyText,400,20px,null,null);
+                }
+            }
+
+            i{
+                @include position(absolute,13px,13px,null,null,2);
+                font-size: 16px;
+            }
+        }
+
+        p:nth-of-type(3){
+            @include text($rob,13px, null,none,$greyText,400,20px,null,null);
+            margin-top: 15px;
+        }
+
+    }
+
+    &-contact-news{
+        &-info{
+            @include flex(null,space-between,null,null);
+            &:nth-of-type(n+2){
+                margin-top: 20px;
+                padding-top: 20px;
+                border-top: 1px solid $grey;
+            }
+
+            &:hover{
+                .footer-contact-news-search{
+                    opacity: 1;
+                }
+                .footer-contact-news-data {
+                    p:nth-child(1){ color: $red; }
+                    p:nth-child(2){ color: #fff; }
+                }
+            }
+        }
+        
+        &-foto{
+            position: relative;
+            border-radius: 5px;
+            width: 70px;
+            overflow: hidden;
+            display: flex;
+        }
+
+        &-data{
+            flex-basis: 180px;
+            text-decoration: none;
+            p:nth-child(1){
+                @include text($rob,14px, null,none,$greyText,400,18px,null,null);
+                transition: 0.4s all linear;
+            }
+            
+            p:nth-child(2){
+                @include text($rob,13px, null,none,$grey,400,20px,null,null);
+                margin-top: 10px;
+                transition: 0.4s all linear;
+            }
+        }
+
+        &-search{
+            @include position(absolute,0,0,0,0,2);
+            background-color: rgba($color: $grey, $alpha: 0.85);
+            @include flex(null,center,null,center);
+            transition: 0.4s all linear;
+            opacity: 0;
+
+            a{
+                width: 30px;
+                height: 30px;
+                background-color: $grey;
+                border-radius: 50%;
+                text-align: center;
+                @include text(null,13px, null,none,#fff,400,32px,null,null);
+                transition: 0.5s all linear;
+
+                &:hover{ background-color: $red; }
+            }
+        }
+    }
+
+
+    &-contact-widget{
+        &-info{
+            @include flex(null,space-between,null,null);
+            &:nth-of-type(n+2){
+                margin-top: 13px;
+                padding-top: 20px;
+                border-top: 1px solid $grey;
+            }
+        }
+
+        &-data{
+            flex-basis: 232px;
+            p:nth-child(1){
+                @include text($rob,14px, null,none,$greyText,400,20px,null,null);
+            }
+            a{
+                @include text(null,14px, null,none,#fff,400,20px,null,null);
+            }      
+            p:nth-child(2){
+                @include text($rob,13px, null,none,$grey,400,20px,null,null);
+                margin-top: 10px;
+            }
+        }
+
+    }
+
+    &-contact-touch{
+        &-info{
+            @include flex(null,space-between,null,null);
+            &:nth-of-type(n+2){
+                margin-top: 13px;
+                padding-top: 20px;
+                border-top: 1px solid $grey;
+            }
+
+            &:hover .footer-contact-touch-data>a{
+                color: $red;
+            }
+        }
+
+        &-adress{
+            @include text($rob,14px, null,none,$greyText,400,20px,null,null);
+        }
+
+        &-data{
+            flex-basis: 170px;
+            a{ 
+                @include text($rob,14px, null,none,$grey,400,20px,null,null);
+                transition: 0.5s all linear; 
+            }
+        }
+
+        &-links a{
+            @include text(null,20px, null,none,$grey,400,20px,null,null);
+            &:hover{ color: $red; }
+        }
+    }
+
+    &-nav{
+        background-color: $footerNavBg;
+    }
+
+    &-nav-inner{
+        @include flex(null,space-between,null,null);
+        padding: 30px 0;
+
+        p{
+            @include text($rob,14px, null,none,$footerText,400,20px,null,null);
+            span{ color: #fff; }
+        }
+    }
+
+    &-nav-list{
+        li:nth-child(n+2){ margin-left: 16px; }
+    }
+
+    &-nav-list__item{
+        @include text($ral,14px, null,none,$footerText,700,20px,null,null);
+    }
+
+    .active{ color: $red; }
+
+}

@@ -1,0 +1,196 @@
+.brands{
+    background-color: $homeBrandsBg;
+
+    &-inner{
+        @include flex(null,space-between,null,null);
+        padding: 116px 0 80px 0;
+    }
+
+    &-item{
+        flex-basis: 270px;
+        padding: 65px 30px 60px 30px;
+        background-color: #fff;
+        text-align: center;
+        position: relative;
+
+        &:before{
+            content: "";
+            width: 70px;
+            height: 2px;
+            background-color: $grey;
+            @include center('horizontal');
+            bottom: 30px;
+            transition: 0.4s all linear;
+        }
+
+        span{
+            display: inline-block;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: $grey;
+            @include flex(null,center,null,center);
+            @include center('horizontal');
+            top: -15%;
+            transition: 0.4s all linear;
+        }
+
+        p:nth-of-type(1){
+            @include text($ral,24px, null,none,$grey,700,20px,null,null);
+            margin-bottom: 20px;
+            transition: 0.4s all linear;
+        }
+
+        p:nth-of-type(2){
+            @include text($ral,14px, null,none,$greyText,400,20px,null,null);
+            transition: 0.4s all linear;
+        }
+
+        &:hover{
+            &:before,
+            span{
+                background-color: $red;
+            }
+
+            p:nth-of-type(1){
+               color: $red;
+            }
+    
+            p:nth-of-type(2){
+                color: #000;
+            }
+        }
+    }
+}
+
+
+.portfolio{
+    padding: 83px 0 80px 0;
+
+    &-title{
+        margin-bottom: 70px;    
+        @include title($grey,$greyText,$red);
+    }
+
+    &-filter{
+        width: 770px;
+        margin: 0 auto 42px auto;
+        padding: 10px 0;
+        background-color: $blockBg;
+        list-style: none;
+        text-align: center;
+        li{
+            display: inline-block;
+        }
+
+        li:nth-child(n+2){
+            margin-left: 34px;
+        }
+        
+    }
+
+    &-filter__item,
+    .filter-active{
+        @include text($ral,14px, null,none,$grey,700,20px,null,null);
+        position: relative;
+
+        &:before{
+            content: "";
+            height: 2px;
+            width: 0;
+            @include center('horizontal');
+            top: 28px;
+            transition: 0.3s all linear;
+            transform-origin: 50% 50%;
+            background-color: $red;
+        }
+    }
+
+    &-filter__item:hover,
+    .filter-active{
+        color: $red;
+        &:before{
+            width: 150%;
+        }
+    }
+
+    &-block{
+        @include flex(null,null,wrap,null);
+    }
+
+    &-block-item{
+        flex-basis: 20%;
+        height: 258px;
+        position: relative;
+        display: flex;
+        img{
+            @include img;
+        }
+
+        &:hover .portfolio-block-search{
+            opacity: 1;
+        }
+    }
+
+    &-block-search{
+        @include position(absolute,0,0,0,0,2);
+        opacity: 0;
+        padding: 40px;
+        background-color: rgba($color: $grey, $alpha: 0.85);
+        transition: 0.7s all linear;
+
+        p:nth-child(1){
+            @include text($ral,24px, capitalize,none,#fff,700,20px,null,null);
+        }
+
+        p:nth-child(2){
+            margin-top: 20px;
+            @include text($rob,14px, null,none,$homePortfolioText,400,20px,null,null);
+            position: relative;
+
+            &:before{
+                content: "";
+                width: 70px;
+                height: 2px;
+                background-color: $red;
+                @include position(absolute,50px,null,null,0,2);
+            }
+        }
+    }
+
+    &-block-search-action{
+        margin-top: 56px;
+        text-align: right;
+
+        a{
+            display: inline-block;
+            width: 42px;
+            height: 42px;
+            color: #fff;
+            text-align: center;
+            line-height: 43px;
+            background-color: $homePortfolioSearch;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.4s all linear;
+
+            &:hover{
+                background-color: $red;    
+            }
+        }
+
+    }
+
+    &-link{
+        text-align: center;
+    }
+
+    &__load{
+        display: inline-block;
+        @include link;
+        font-size: 12px;
+        padding: 9px 24px;
+        margin-top: 40px;   
+    }
+
+}
